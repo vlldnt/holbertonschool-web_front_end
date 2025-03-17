@@ -35,4 +35,4 @@ flowchart TD
     C -->|Two| E[iPhone]
     C -->|Three| F[fa:fa-car Car]
 
-   ![image](https://avatars.githubusercontent.com/u/96932290?v=4)
+<img src="https://avatars.githubusercontent.com/u/96932290?v=4" width="150" />
