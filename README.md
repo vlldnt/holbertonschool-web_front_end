@@ -34,5 +34,6 @@ flowchart TD
     C -->|One| D[Laptop]
     C -->|Two| E[iPhone]
     C -->|Three| F[fa:fa-car Car]
+```
 
-<img src="https://avatars.githubusercontent.com/u/96932290?v=4" width="150" />
+![Image](https://avatars.githubusercontent.com/u/96932290?v=4)
