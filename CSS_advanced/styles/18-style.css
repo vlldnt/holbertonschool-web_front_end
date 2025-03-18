@@ -475,7 +475,7 @@ a:active {
   padding: var(--footer-padding);
 }
 
-.navbar-class {
+.navbar-menu {
   float: right;
 }
 
@@ -489,7 +489,7 @@ a:active {
 .nav .nav-item {
   font-family: var(--nav-item-font-family);
   font-weight: var(--nav-item-font-weight);
-  font-size: var(--font-size-medium);
+  font-size: var(--nav-item-font-size);
   letter-spacing: var(--nav-item-letter-spacing);
   display: var(--nav-item-display);
   margin: var(--nav-item-margin);
@@ -497,7 +497,7 @@ a:active {
 
 .nav .nav-link {
   display: block;
-  padding: 0.5rem 1 0.5rem 1;
+  padding: 0.5rem 1rem 0.5rem 1rem;
 }
 
 .nav .nav-link:hover {
