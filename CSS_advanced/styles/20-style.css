@@ -534,7 +534,7 @@
     text-align: right;
   }
 
-  .row + .row {
+  .row::after {
     content: "";
     display: table;
     clear: both;
