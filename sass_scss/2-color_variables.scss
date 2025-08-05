@@ -1,0 +1,16 @@
+/* Variables Colors */
+$textcolor: #3D3D3D;
+$bgcolor: #6D6D6D;
+
+body {
+    color: $textcolor;
+    background-color: $bgcolor;
+}
+
+p {
+    color: $textcolor;
+}
+
+h2 {
+    background-color: $bgcolor;
+}
