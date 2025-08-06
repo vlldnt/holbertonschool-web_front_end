@@ -1,0 +1,11 @@
+/* Nested hover */
+$redhex: #FF0000;
+$greenhex: #00FF00;
+
+button {
+    color: $redhex;
+
+    &:hover {
+        color: $greenhex;
+    }
+}

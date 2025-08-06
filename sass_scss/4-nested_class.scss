@@ -1,0 +1,11 @@
+/* Nested Class */
+$darkgray: #3D3D3D;
+$redhex: #FF0000;
+
+body {
+    color: $darkgray;
+
+    .red {
+        color: $redhex;
+    }
+}
