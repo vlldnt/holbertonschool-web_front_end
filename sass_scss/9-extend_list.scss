@@ -1,0 +1,18 @@
+/* Extended List */
+$fontsize: 12px;
+$greenhex: #00FF00;
+$redhex: #FF0000;
+
+.info {
+    font-size: $fontsize;
+}
+
+.success {
+    color: $greenhex;
+    @extend .info;
+}
+
+.warning {
+    color: $redhex;
+    @extend .info;
+}
