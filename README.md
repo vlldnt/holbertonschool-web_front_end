@@ -1,39 +1,13 @@
-# Advanced HTML
+# <img src="https://cdn.prod.website-files.com/6105315644a26f77912a1ada/63eea844ae4e3022154e2878_Holberton-p-500.png" width="140px" alt="Holberton School"> - Web Frontend
 
-## Coucou
-
-### Salut
-
-#### Coucou
-
-##### Coucou
-
-###### Coucouc
-
-[Lien](www.google.fr)
+The **Holberton School - Web Frontend** project introduces students to the essentials of web development, covering :
+- [HTML](https://github.com/vlldnt/holbertonschool-web_front_end/html_advanced) 
+- [CSS](https://github.com/vlldnt/holbertonschool-web_front_end/CSS_advanced) 
+- [SASS](https://github.com/vlldnt/holbertonschool-web_front_end/sass_scss)
+- [Developer tools](https://github.com/vlldnt/holbertonschool-web_front_end/developer_tools) 
+ 
+ It provides hands-on experience to design, analyze, and optimize professional web interfaces.
 
 
-**gras** gras
 
-_italique_ italique
-
-Voici le code : `cd dossier/`
-
-```
-<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="shortcut icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<link rel="manifest" href="/site.webmanifest" />
-```
-
-```mermaid
-flowchart TD
-    A[Christmas] -->|Get money| B(Go shopping)
-    B --> C{Let me think}
-    C -->|One| D[Laptop]
-    C -->|Two| E[iPhone]
-    C -->|Three| F[fa:fa-car Car]
-```
-
-![Image](https://avatars.githubusercontent.com/u/96932290?v=4)
+<img src="https://cdn.prod.website-files.com/64107f65f30b69371e3d6bfa/65c6179aa44b63fa4f31e7ad_Holberton-Logo-Cherry.svg" width="200px" alt="Holberton Logo Cherry">
