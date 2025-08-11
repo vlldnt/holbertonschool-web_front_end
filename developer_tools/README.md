@@ -20,10 +20,8 @@ The project you described is a practical exercise designed to familiarize studen
 
 The tasks are designed to provide hands-on experience with various aspects of web development and debugging using browser-based tools.
 
-
-![Additional Image](https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2019/12/0872ca9b19e11650e355.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4MYA5JM5DUTZGMZG%2F20250811%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20250811T110225Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=4dd46845c368391eb104fd31ef840cd122e97d7088f8bb50805520ae47e1b35e)
+<img src="https://s3.eu-west-3.amazonaws.com/hbtn.intranet/uploads/medias/2019/12/0872ca9b19e11650e355.jpeg" alt="Holberton School Classroom">
 
 ---
-
 
 <img src="https://cdn.prod.website-files.com/64107f65f30b69371e3d6bfa/65c6179aa44b63fa4f31e7ad_Holberton-Logo-Cherry.svg"  alt="Holberton Logo Cherry">
