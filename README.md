@@ -11,6 +11,6 @@ The **Holberton School - Web Frontend** project introduces students to the essen
 
 It provides hands-on experience to design, analyze, and optimize professional web interfaces.
 
-
+---
 
 <img src="https://cdn.prod.website-files.com/64107f65f30b69371e3d6bfa/65c6179aa44b63fa4f31e7ad_Holberton-Logo-Cherry.svg" width="200px" alt="Holberton Logo Cherry">
