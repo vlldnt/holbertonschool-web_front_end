@@ -751,7 +751,7 @@ ul.row {
 }
 
 .post-meta-list [class^="post-meta"]:last-child {
-  border: None;
+  border: none;
   margin-bottom: 3rem;
 }
 
