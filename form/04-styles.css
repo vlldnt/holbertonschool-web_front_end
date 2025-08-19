@@ -700,7 +700,7 @@ input[type="text"], input[type="email"] {
   padding-right: 3rem;
 }
 
-input[type="text"]:hover, input[type="email"]:hover {
+input[type="text"]:hover, input[type="email"]:hover, textarea:hover {
   border: .1rem solid var(--color-grey);
   background-color: var(--color-light-grey);
 }
