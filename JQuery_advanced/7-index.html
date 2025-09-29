@@ -14,8 +14,8 @@
         let object = null;
         function createSearchForm() {
             $('body').append([
-                $('<input/>', { type: 'text' }),
-                $('<input/>', {
+                $('<input>', { type: 'text' }),
+                $('<input>', {
                     type: 'submit',
                     on: {
                         click: function () {
@@ -23,18 +23,18 @@
                         }
                     }
                 }),
-                $('<ul/>')
+                $('<ul>')
             ])
         }
 
         function addNewArticle(id, title, snippet) {
             $('ul').append(
-                $('<li/>').append([
-                    $('<p/>').append([
-                        $('<span/>', { text: id + ' - ' }),
-                        $('<b/>', { text: title })
+                $('<li>').append([
+                    $('<p>').append([
+                        $('<span>', { text: id + ' - ' }),
+                        $('<b>', { text: title })
                     ]),
-                    $('<p/>', { html: snippet })
+                    $('<p>', { html: snippet })
                 ])
             )
         }
