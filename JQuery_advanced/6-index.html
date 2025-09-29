@@ -26,7 +26,7 @@
         }
 
         function addNewMember(firstName, lastName, position) {
-            const rewLine = $("<tr>").append(
+            const newLine = $("<tr>").append(
                 $("<td>").text(firstName),
                 $("<td>").text(lastName),
                 $("<td>")
@@ -36,22 +36,32 @@
                         $(this).closest("tr").remove();
                     })
             );
-            if (positin === "before") {
-                $("<tbody>").prepend(newLIne);
+            if (position === "before") {
+                $("tbody").prepend(newLine);
             } else {
-                $("<tbody>").append(newLIne);
+                $("tbody").append(newLine);
             }
         }
 
         function createForm() {
-            $("<body>").prepend(
-                
-            )
+            $("table").before(
+                $("<input>").attr({type: "text", placeholder: "Firstname"}),
+                $("<input>").attr({type: "text", placeholder: "Lastname"}),
+                $("<select>").append(
+                    $("<option>").val("after").text("After"),
+                    $("<option>").val("before").text("Before")
+                ),
+                $("<input>").attr({type: "submit", value: "Submit"}).click(function() {
+                    const firstName = $("input:first").val();
+                    const lastName = $("input:nth-of-type(2)").val();
+                    const position = $("select").val();
+                    addNewMember(firstName, lastName, position);
+                })
+            );
         }
 
         createFamilyTree();
-
-
+        createForm();
     </script>
 </body>
 
