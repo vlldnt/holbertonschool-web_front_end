@@ -1,0 +1,69 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Introduction to JSON Server",
+      "author": "Alice"
+    },
+    {
+      "id": 2,
+      "title": "Learning jQuery",
+      "author": "Bob"
+    },
+    {
+      "id": 3,
+      "title": "Understanding AJAX",
+      "author": "Charlie"
+    },
+    {
+      "id": 4,
+      "title": "Front-End Best Practices",
+      "author": "Diana"
+    },
+    {
+      "id": 5,
+      "title": "CSS Grid Layout",
+      "author": "Eve"
+    },
+    {
+      "id": 6,
+      "title": "Responsive Design",
+      "author": "Frank"
+    },
+    {
+      "id": 7,
+      "title": "JavaScript ES6 Features",
+      "author": "Grace"
+    },
+    {
+      "id": 8,
+      "title": "Async/Await in JS",
+      "author": "Hank"
+    },
+    {
+      "id": 9,
+      "title": "Using Fetch API",
+      "author": "Ivy"
+    },
+    {
+      "id": 10,
+      "title": "Debugging Techniques",
+      "author": "Jack"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "Great post on JSON Server!",
+      "postId": 1
+    },
+    {
+      "id": 2,
+      "body": "Very helpful explanation on AJAX.",
+      "postId": 3
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
