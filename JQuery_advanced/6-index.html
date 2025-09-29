@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Task 6</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.js"
+        integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous">
+        </script>
+</head>
+
+<body>
+    <script type="application/javascript">
+        function createFamilyTree() {
+            $("body").append(
+                $("<table>").append(
+                    $("<thead>").append(
+                        $("<tr>").append(
+                            $("<th>").text("Firstname"),
+                            $("<th>").text("Lastname")
+                        )
+                    ),
+                    $("<tbody>")
+                )
+            );
+        }
+
+        function addNewMember(firstName, lastName, position) {
+            const rewLine = $("<tr>").append(
+                $("<td>").text(firstName),
+                $("<td>").text(lastName),
+                $("<td>")
+                    .text("(x)")
+                    .css({ "background-color": "orange" })
+                    .click(function () {
+                        $(this).closest("tr").remove();
+                    })
+            );
+            if (positin === "before") {
+                $("<tbody>").prepend(newLIne);
+            } else {
+                $("<tbody>").append(newLIne);
+            }
+        }
+
+        function createForm() {
+            $("<body>").prepend(
+                
+            )
+        }
+
+        createFamilyTree();
+
+
+    </script>
+</body>
+
+</html>
