@@ -1,11 +1,6 @@
 {
   "posts": [
     {
-      "id": "1",
-      "title": "Introduction to JSON Server",
-      "author": "Alice"
-    },
-    {
       "id": "2",
       "title": "Learning jQuery",
       "author": "Bob"
@@ -71,9 +66,9 @@
       "author": "Adrien"
     },
     {
-      "id": "c4c3",
-      "title": "zadaz",
-      "author": "zdadaz"
+      "id": "9dbb",
+      "title": "AD",
+      "author": "AD"
     }
   ],
   "comments": [
