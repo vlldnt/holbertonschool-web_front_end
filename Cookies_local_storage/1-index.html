@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies</title>
+
+</head>
+
+<body>
+    <!--Input Firstname and Email-->
+    <form method="post">
+        <h1>Login to the website</h1>
+
+        <!-- Username Input -->
+        <input type="text" name="firstname" id="firstname" placeholder="Firstname">
+
+        <!-- Email Input -->
+        <input type="text" name="email" id="email" placeholder="Email">
+
+        <!-- Submit Button Log me on -->
+        <button type="button" onclick="setCookies()">
+            Log me in
+        </button>
+
+        <br><br>
+
+        <h1>Cookies</h1>
+
+        <!-- Submit Button Show the Cookies-->
+        <button type="button" onclick="showCookies()">
+            Show the cookies
+        </button>
+
+    </form>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Inputs styles
+            const inputs = document.querySelectorAll("input[type='text']");
+            inputs.forEach((input) => {
+                input.style.padding = "2px 5px";
+                input.style.fontSize = "18px";
+                input.style.border = "2px solid #ccc";
+                input.style.borderRadius = "0px";
+                input.style.marginRight = "15px";
+                input.style.height = "30px";
+                input.style.width = "210px";
+            });
+
+            // Buttons style
+            const buttons = document.querySelectorAll("button");
+            buttons.forEach((button) => {
+                button.style.padding = "5px 10px";
+                button.style.fontSize = "22px";
+                button.style.fontFamily = "Arial, sans-serif";
+                button.style.backgroundColor = "white";
+                button.style.border = "2px solid #ccc";
+                button.style.borderRadius = "8px";
+                button.style.cursor = "pointer";
+                button.style.boxShadow = "0 2px 4px rgba(0,0,0,0.1)";
+                button.style.height = "40px";
+            });
+
+            // H1 styles
+            const h1Titles = document.querySelectorAll("h1");
+            h1Titles.forEach((h1) => {
+                h1.style.fontSize = "48px";
+                h1.style.fontWeight = "bold";
+                h1.style.marginBottom = "30px";
+            });
+        });
+
+        // Set new cookies
+        function setCookies() {
+            const firstName = document.getElementById("firstname").value;
+            const email = document.getElementById("email").value;
+
+            const tenDays = new Date();
+            tenDays.setTime(tenDays.getTime() + (10 * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + tenDays.toUTCString();
+
+            document.cookie = "firstname=" + firstName + "; " + expires + "; path=/";
+            document.cookie = "email=" + email + "; " + expires + "; path=/";
+        }
+
+        // Get all cookies
+        function showCookies() {
+            const cookies = document.cookie.split("; ").map(cookie => decodeURIComponent(cookie));
+            const doc = document.createElement("p");
+
+            doc.className = "cookies";
+            doc.textContent = "Cookies: " + cookies.join(", ");
+            doc.style.fontFamily = "Calibri";
+            doc.style.fontStyle = "oblique";
+            doc.style.fontSize = "20px";
+            doc.style.color = "#293133";
+
+            document.body.appendChild(doc);
+        }
+
+    </script>
+</body>
+
+</html>
