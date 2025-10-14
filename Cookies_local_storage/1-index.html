@@ -86,11 +86,12 @@
 
         // Get all cookies
         function showCookies() {
-            const cookies = document.cookie.split("; ").map(cookie => decodeURIComponent(cookie));
+            const cookies = document.cookie;
             const doc = document.createElement("p");
 
             doc.className = "cookies";
-            doc.textContent = "Cookies: " + cookies.join(", ");
+            doc.textContent = "Cookies: " + cookies;
+
             doc.style.fontFamily = "Calibri";
             doc.style.fontStyle = "oblique";
             doc.style.fontSize = "20px";
