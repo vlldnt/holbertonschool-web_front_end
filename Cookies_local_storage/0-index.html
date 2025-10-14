@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies</title>
+
+</head>
+
+<body>
+    <!--Input Firstname and Email-->
+    <form method="post">
+        <h1>Login to the website</h1>
+
+        <!-- Username Input -->
+        <input type="text" name="firstname" id="firstname" placeholder="Firstname">
+
+        <!-- Email Input -->
+        <input type="text" name="email" id="email" placeholder="Email">
+
+        <!-- Submit Button Log me on -->
+        <button type="button" onclick="setCookies()">
+            Log me in
+        </button>
+
+        <br><br>
+
+        <h1>Cookies</h1>
+
+        <!-- Submit Button Show the Cookies-->
+        <button type="button" onclick="showCookies()">
+            Show the cookies
+        </button>
+
+    </form>
+    <script src="src/index.js"></script>
+</body>
+
+</html>

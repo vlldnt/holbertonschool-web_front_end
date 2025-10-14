@@ -1,0 +1,53 @@
+document.addEventListener("DOMContentLoaded", () => {
+  // Inputs styles
+  const inputs = document.querySelectorAll("input[type='text']");
+  inputs.forEach((input) => {
+    input.style.padding = "2px 5px";
+    input.style.fontSize = "18px";
+    input.style.border = "2px solid #ccc";
+    input.style.borderRadius = "0px";
+    input.style.marginRight = "15px";
+    input.style.height = "30px";
+    input.style.width = "210px";
+  });
+
+  // Buttons style
+  const buttons = document.querySelectorAll("button");
+  buttons.forEach((button) => {
+    button.style.padding = "5px 10px";
+    button.style.fontSize = "22px";
+    button.style.fontFamily = "Arial, sans-serif";
+    button.style.backgroundColor = "white";
+    button.style.border = "2px solid #ccc";
+    button.style.borderRadius = "8px";
+    button.style.cursor = "pointer";
+    button.style.boxShadow = "0 2px 4px rgba(0,0,0,0.1)";
+    button.style.height = "40px";
+  });
+
+  // H1 styles
+  const h1Titles = document.querySelectorAll("h1");
+  h1Titles.forEach((h1) => {
+    h1.style.fontSize = "48px";
+    h1.style.fontWeight = "bold";
+    h1.style.marginBottom = "30px";
+  });
+});
+
+// Set new cookies
+function setCookies() {
+  const firstName = document.getElementById("firstname").value;
+  const email = document.getElementById("email").value;
+
+  document.cookie = "firstname=" + firstName;
+  document.cookie = "email=" + email;
+}
+
+// Get all cookies
+function showCookies() {
+  const doc = document.createElement("p");
+  const cookies = document.cookie;
+
+  doc.innerHTML = "Cookies:" + cookies;
+  document.body.appendChild(doc);
+}
