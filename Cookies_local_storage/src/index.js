@@ -48,6 +48,12 @@ function showCookies() {
   const doc = document.createElement("p");
   const cookies = document.cookie;
 
+  doc.className = "cookies";
   doc.innerHTML = "Cookies:" + cookies;
+  doc.style.fontFamily = "Calibri";
+  doc.style.fontStyle = "oblique"
+  doc.style.fontSize = "20px"
+  doc.style.color = "#293133"
+
   document.body.appendChild(doc);
 }
