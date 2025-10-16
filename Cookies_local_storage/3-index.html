@@ -56,31 +56,6 @@
                 h2.style.fontWeight = "bold";
                 h2.style.marginBottom = "30px";
             });
-
-            // H1 styles
-            const h1Titles = document.querySelectorAll("h1");
-            h1Titles.forEach((h1) => {
-                h1.style.fontSize = "48px";
-                h1.style.fontWeight = "bold";
-            });
-
-            // Links styles
-            const links = document.querySelectorAll("a");
-            links.forEach((link) => {
-                link.style.fontWeight = "normal";
-                link.style.fontStyle = "italic";
-                link.style.marginLeft = "10px";
-            });
-
-            // Cookies paragraph styles
-            const cookiesParagraphs = document.querySelectorAll(".cookies");
-            cookiesParagraphs.forEach((p) => {
-                p.style.fontFamily = "Calibri";
-                p.style.fontStyle = "oblique";
-                p.style.fontSize = "20px";
-                p.style.color = "#293133";
-            });
-
         });
 
 
@@ -107,18 +82,20 @@
             h1.appendChild(link);
             document.body.appendChild(h1);
 
-            // Apply styles to dynamically created elements
+            // H1 styles
             const h1Titles = document.querySelectorAll("h1");
             h1Titles.forEach((h1) => {
                 h1.style.fontSize = "48px";
                 h1.style.fontWeight = "bold";
             });
 
+            // Links styles
             const links = document.querySelectorAll("a");
             links.forEach((link) => {
                 link.style.fontWeight = "normal";
                 link.style.fontStyle = "italic";
                 link.style.marginLeft = "10px";
+                link.style.textDecoration = "none";
             });
         }
 
@@ -186,6 +163,15 @@
             doc.textContent = cookiesDisplay;
 
             document.body.appendChild(doc);
+
+            // Cookies paragraph styles
+            const cookiesParagraphs = document.querySelectorAll(".cookies");
+            cookiesParagraphs.forEach((p) => {
+                p.style.fontFamily = "Calibri";
+                p.style.fontStyle = "oblique";
+                p.style.fontSize = "20px";
+                p.style.color = "#293133";
+            });
         }
 
     </script>
