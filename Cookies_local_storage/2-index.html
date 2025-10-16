@@ -84,34 +84,38 @@
             document.cookie = "email=" + email + "; " + expires + "; path=/";
         }
 
+
+        function getCookies(name) {
+            const cookies = document.cookie;
+            const cookieSpit = cookies.split(";")
+            for (const cookie of cookies) {
+                const [key, value] = cookie.trim().split("=");
+                if (key === name) {
+                    return value;
+                }
+            }
+            return "";
+        }
+
         // Get all cookies
         function showCookies() {
             const cookies = document.cookie;
             const cookiesSplit = {};
+            const firstName = getCookies("firstname");
+            const email = getCookies("email");
 
-            // Parse the cookie in an key/value object
-            cookies.split(";").forEach(split => {
-                const [key, value] = split.trim().split("=");
-                cookiesSplit[key] = value; 
-            })
-
-            const cookiesDisplay = `Email: ${cookiesSplit.email} - Firstname: ${cookiesSplit.firstname}`
+            const cookiesDisplay = `Email: ${email} - Firstname: ${firstName}`
 
             const doc = document.createElement("p");
 
             doc.className = "cookies";
             doc.textContent = cookiesDisplay;
-
             doc.style.fontFamily = "Calibri";
             doc.style.fontStyle = "oblique";
             doc.style.fontSize = "20px";
             doc.style.color = "#293133";
 
             document.body.appendChild(doc);
-        }
-
-        function getcookies(name) {
-
         }
 
     </script>
