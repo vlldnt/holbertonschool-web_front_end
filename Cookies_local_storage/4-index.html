@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies</title>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+
+</head>
+
+<body>
+    <!--Input Firstname and Email-->
+    <form id="form" method="post">
+        <h2>Login to the website</h2>
+        <input type="text" name="firstname" id="firstname" placeholder="Firstname">
+        <input type="text" name="email" id="email" placeholder="Email">
+        <button type="button" onclick="setCookies()">
+            Log me in
+        </button>
+    </form>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Show welcome message or form
+            showWelcomeMessageOrForm();
+
+            // Inputs styles
+            const inputs = document.querySelectorAll("input[type='text']");
+            inputs.forEach((input) => {
+                input.style.padding = "2px 5px";
+                input.style.fontSize = "18px";
+                input.style.border = "2px solid #ccc";
+                input.style.borderRadius = "0px";
+                input.style.marginRight = "15px";
+                input.style.height = "30px";
+                input.style.width = "210px";
+            });
+
+            // Buttons style
+            const buttons = document.querySelectorAll("button");
+            buttons.forEach((button) => {
+                button.style.padding = "5px 10px";
+                button.style.fontSize = "22px";
+                button.style.fontFamily = "Arial, sans-serif";
+                button.style.backgroundColor = "white";
+                button.style.border = "2px solid #ccc";
+                button.style.borderRadius = "8px";
+                button.style.cursor = "pointer";
+                button.style.boxShadow = "0 2px 4px rgba(0,0,0,0.1)";
+                button.style.height = "40px";
+            });
+
+            // H2 styles
+            const h2Titles = document.querySelectorAll("h2");
+            h2Titles.forEach((h2) => {
+                h2.style.fontSize = "48px";
+                h2.style.fontWeight = "bold";
+                h2.style.marginBottom = "30px";
+            });
+        });
+
+
+        // Show message welcome
+        function showWelcomeMessageOrForm() {
+            if (!Cookies.get("firstname")) {
+                showForm();
+                return;
+            }
+
+            hideForm();
+
+            let h1 = document.createElement("h1");
+            h1.textContent = "Welcome " + Cookies.get("firstname") + " ";
+
+            let link = document.createElement("a");
+            link.innerHTML = "(logout)";
+            link.href = "#";
+            link.onclick = function (e) {
+                e.preventDefault();
+                deleteCookiesAndShowForm();
+            };
+
+            h1.appendChild(link);
+            document.body.appendChild(h1);
+
+            // H1 styles
+            const h1Titles = document.querySelectorAll("h1");
+            h1Titles.forEach((h1) => {
+                h1.style.fontSize = "48px";
+                h1.style.fontWeight = "bold";
+            });
+
+            // Links styles
+            const links = document.querySelectorAll("a");
+            links.forEach((link) => {
+                link.style.fontWeight = "normal";
+                link.style.fontStyle = "italic";
+                link.style.marginLeft = "10px";
+                link.style.textDecoration = "none";
+            });
+        }
+
+        // Delete Cookies
+        function deleteCookiesAndShowForm() {
+            Cookies.remove("firstname");
+            showForm();
+        }
+        // Show form
+        function showForm() {
+            const welcomeMessage = document.querySelector("h1");
+            if (welcomeMessage) {
+                welcomeMessage.remove();
+            }
+            let form = document.getElementById("form")
+            form.style.display = "block"
+        }
+
+        // Hide form
+        function hideForm() {
+            let form = document.getElementById("form")
+            form.style.display = "none"
+        }
+
+        // Set new cookies with expiration date and specific path
+        function setCookies() {
+            const firstName = document.getElementById("firstname").value;
+            const email = document.getElementById("email").value;
+
+            const tenDays = new Date();
+            tenDays.setTime(tenDays.getTime() + (10 * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + tenDays.toUTCString();
+            
+            Cookies.set('firstname', firstName, { expires: 10, path: '' })
+            Cookies.set('email', email, { expires: 10, path: '' })
+
+            showWelcomeMessageOrForm();
+        }
+
+        // Get all cookies
+        function showCookies() {
+            const cookies = document.cookie;
+            const firstName = Cookies.get("firstname");
+            const email = Cookies.get("email");
+
+            const cookiesDisplay = `Email: ${email} - Firstname: ${firstName}`
+
+            const doc = document.createElement("p");
+
+            doc.className = "cookies";
+            doc.textContent = cookiesDisplay;
+
+            document.body.appendChild(doc);
+
+            // Cookies paragraph styles
+            const cookiesParagraphs = document.querySelectorAll(".cookies");
+            cookiesParagraphs.forEach((p) => {
+                p.style.fontFamily = "Calibri";
+                p.style.fontStyle = "oblique";
+                p.style.fontSize = "20px";
+                p.style.color = "#293133";
+            });
+        }
+
+    </script>
+</body>
+
+</html>
