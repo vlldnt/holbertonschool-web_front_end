@@ -84,11 +84,11 @@
             document.cookie = "email=" + email + "; " + expires + "; path=/";
         }
 
-
+        // get cookies function and return the value of the name key
         function getCookies(name) {
             const cookies = document.cookie;
-            const cookieSpit = cookies.split(";")
-            for (const cookie of cookies) {
+            const cookiesSplit = cookies.split(";")
+            for (const cookie of cookiesSplit) {
                 const [key, value] = cookie.trim().split("=");
                 if (key === name) {
                     return value;
@@ -100,7 +100,6 @@
         // Get all cookies
         function showCookies() {
             const cookies = document.cookie;
-            const cookiesSplit = {};
             const firstName = getCookies("firstname");
             const email = getCookies("email");
 
