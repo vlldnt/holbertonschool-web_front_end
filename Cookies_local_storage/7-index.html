@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced use of web storage</title>
+    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAATszWAJ/GxgCZx5QASc/PAMu+bQBZwusALS0tAErSuwA8WE8ANHDvAFhWVQCItIoAp8a/ANK+ZgAuHr8AQ5zmAHOcswCkrZoABAQEAC5PWQD39vYA////ABUVGAC+yawA6Md2AAcPKgCbm5wAWtG2AEfQywAzMTEAgKCdAHJ6fgCgn6EASTvHAN20UQB4YSoAb142AFTSuQDjuVQAcW5tAPz8/AB2wOcAExIVAGpnZgCZfDcA/v7+AOC2UgBjYF8AKlnxANmwUADkw3QAMjAwAJ3GkQBN07sAFBQWACkpKQBI0M4AUcndAOO7VADVrU4AMnLsAHHOrAAsOTcAkHOEANGvVwDiuFMApYY8AHBtbABg0LQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWFhYWFhYWFhYWFhYWFhYWFhYWFjMyJzwkJyMtLxYWFhYWFhYZJydDQkQoABYWFhYWFhYWFhYWAAAoRAAWFhYWFgAAAAAANB4AACgAAAAWFhYAAAAAKBsuKSsxNwAAFhYWAAAAEwciDyEaFwsAABYWFgAAABZBPz4IBBAKIAIWFhYAADAVQB8JNjk6BhENFhYWACwAOyUPDCYxPRQxEhYWFjg4ODs7BQMcHQEBKhgWFhYWFhY7Ow41RRYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWAAAAAAAAAAAAAAAAAAAAAP//AAD//wAA//8AAPJHAAD+nwAA/58AAPzfAAD5DwAA8A8AAPmHAADgAwAA0AMAAPA/AAD8fwAA//8AAP//AAA=" rel="icon" type="image/x-icon">
+</head>
+
+<body>
+    <script>
+        const availableItems = ["Shampoo", "Soap", "Sponge", "Water"];
+
+        if (typeof (Storage) === "undefined") {
+            alert("Sorry, your browser does not support Web storage. Try again with a better one")
+        } else {
+            createStore();
+            displayCart()
+        }
+
+        function getCartFromStorage() {
+            const cart = sessionStorage.getItem('cart');
+            if (cart) {
+                return JSON.parse(cart)
+            } else {
+                return {}
+            }
+        }
+
+        function addItemToCart(item) {
+            const sessionCart = getCartFromStorage();
+            if (sessionCart[item]) {
+                sessionCart[item] += 1;
+            } else {
+                sessionCart[item] = 1
+            }
+            sessionStorage.setItem('cart', JSON.stringify(sessionCart));
+            displayCart();
+        }
+
+        function removeItemfromCart(item) {
+            const sessionCart = getCartFromStorage();
+            delete sessionCart[item];
+            sessionStorage.setItem('cart', JSON.stringify(sessionCart));
+            displayCart();
+        }
+
+        function clearCart() {
+            sessionStorage.clear();
+            displayCart();
+        }
+
+        function createStore() {
+            const h2 = document.createElement('h2');
+            h2.textContent = "Available products:";
+            document.body.appendChild(h2);
+
+            const list = document.createElement('ul');
+            document.body.appendChild(list);
+
+            for (let i = 0; i < availableItems.length; i++) {
+                let element = document.createElement('li');
+                element.textContent = availableItems[i];
+                element.style.cursor = 'pointer';
+                element.onclick = function () {
+                    addItemToCart(availableItems[i]);
+                }
+                list.appendChild(element);
+            }
+        }
+
+        function displayCart() {
+            const h2Tag = document.getElementById('cart-title');
+            if (!h2Tag) {
+                const h2 = document.createElement('h2');
+                h2.id = 'cart-title';
+                h2.textContent = 'Your cart:';
+                document.body.appendChild(h2);
+            }
+
+            let divCart = document.getElementById("cart");
+
+            if (divCart) {
+                while (divCart.firstChild) {
+                    divCart.removeChild(divCart.firstChild);
+                }
+            } else {
+                divCart = document.createElement('div');
+                divCart.id = "cart";
+                document.body.appendChild(divCart);
+            }
+
+            updateCart();
+        }
+
+        function updateCart() {
+            const sessionCart = getCartFromStorage();
+            const cart = document.getElementById('cart');
+
+            const ul = document.createElement('ul');
+            cart.appendChild(ul);
+
+            const keys = Object.keys(sessionCart);
+
+            if (keys.length === 0) {
+                const li = document.createElement('li');
+                li.textContent = 'Your cart is empty'
+                ul.appendChild(li);
+            } else {
+                const clear = document.createElement('li');
+                clear.textContent = 'Clear my cart';
+                clear.style.cursor = 'pointer';
+                clear.onclick = function () {
+                    clearCart();
+                };
+                ul.appendChild(clear);
+
+                for (let count = 0; count < keys.length; count++) {
+                    const element = document.createElement('li');
+                    const itemName = keys[count];
+                    const quantity = sessionCart[itemName];
+
+                    element.textContent = itemName + ' x ' + quantity + ' ';
+
+                    const remove = document.createElement('span');
+                    remove.textContent = '(remove)';
+                    remove.style.cursor = 'pointer';
+                    remove.onclick = function () {
+                        removeItemfromCart(itemName);
+                    };
+
+                    element.appendChild(remove);
+                    ul.appendChild(element);
+                }
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
